@@ -1,5 +1,6 @@
 #include <iostream>
 #include "instrument_dumb.h"
+#include "seno.h"
 
 /*
   For each new instrument:
@@ -10,13 +11,20 @@
 
 using namespace std;
 
-namespace upc {
-  Instrument * get_instrument(const string &name,
-			      const string &parameters) {
-    Instrument * pInst = 0;
+namespace upc
+{
+  Instrument *get_instrument(const string &name,
+                             const string &parameters)
+  {
+    Instrument *pInst = 0;
     //    cout << name << ": " << parameters << endl;
-    if (name == "InstrumentDumb") {
-      pInst = (Instrument *) new InstrumentDumb(parameters);
+    if (name == "InstrumentDumb")
+    {
+      pInst = (Instrument *)new InstrumentDumb(parameters);
+    }
+    if (name == "Seno")
+    {
+      pInst = (Instrument *)new Seno(parameters);
     }
     return pInst;
   }
